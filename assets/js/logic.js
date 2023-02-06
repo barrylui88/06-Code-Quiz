@@ -16,11 +16,13 @@ let currentAnswerChoice4 = 3;
 let currentQuestionNumber = 1;
 let correctAudio = new Audio("./assets/sfx/correct.wav");
 let wrongAudio = new Audio("./assets/sfx/incorrect.wav");
+let feedbackSection = document.querySelector("#feedback");
+let latestPlayerScore = 0;
 
 // Questions
 let questionArray = [
     "1. Inside which HTML element do we put the JavaScript?",
-    "2. Hi",
+    "2. Who invented JavaScript?",
     "3. ",
     "4. ",
     "5. ",
@@ -44,13 +46,7 @@ let questionArray = [
 // Answer Choices
 let answerChoicesArray = [
     "<javascript>","<script>","<scripting>","<js>",
-    "1","2","3","4"
-]
-
-// Correct Answers
-let correctAnswersArray = [
-    "<script>",
-    "3"
+    "Douglas Crockford","Sheryl Sandberg","Brendan Eich","Elon Musk"
 ]
 
 // Event Listeners
@@ -64,7 +60,8 @@ answerChoice4.addEventListener("click", () => evaluateAnswer(4));
 function showQuestionSection () {
     startScreen.classList.add("hide");
     questionSection.classList.remove("hide");
-    showNextQuestion();
+    feedbackSection.classList.remove("hide");
+    showNextQuestion();    
 }
 
 function showNextQuestion () {
@@ -85,18 +82,173 @@ function evaluateAnswer (choice) {
         case 1:
             if (choice === 2) {
                 correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 2:
+            if (choice === 3) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 3:
+            if (choice === 3) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 4:
+            if (choice === 4) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 5:
+            if (choice === 1) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 6:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 7:
+            if (choice === 3) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 8:
+            if (choice === 4) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 9:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 10:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 11:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 12:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 13:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 14:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 15:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 16:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 17:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 18:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 19:
+            if (choice === 2) {
+                correctAnswer();
+                break;
+            } else {
+                wrongAnswer();
+                break;
+            }
+        case 20:
+            if (choice === 2) {
+                correctAnswer();
             } else {
                 wrongAnswer();
             }
-        case 2:
-            
     }
+    currentQuestionNumber++;
+    showNextQuestion();
 }
 
 function correctAnswer () {
     correctAudio.play();
+    latestPlayerScore++;
+    feedbackSection.textContent = "Correct!"
 }
 
 function wrongAnswer () {
     wrongAudio.play();
+    feedbackSection.textContent = "Incorrect!"
 }
