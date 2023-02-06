@@ -20,6 +20,9 @@ let feedbackSection = document.querySelector("#feedback");
 let latestPlayerScore = 0;
 let endScreen = document.querySelector("#end-screen");
 let finalScoreText = document.querySelector("#final-score");
+let playerInitials = document.querySelector("#initials");
+let submitButton = document.querySelector("#submit");
+let scoreForStorage = {};
 
 // Questions
 let questionArray = [
@@ -75,6 +78,7 @@ answerChoice1.addEventListener("click", () => evaluateAnswer(1));
 answerChoice2.addEventListener("click", () => evaluateAnswer(2));
 answerChoice3.addEventListener("click", () => evaluateAnswer(3));
 answerChoice4.addEventListener("click", () => evaluateAnswer(4));
+submitButton.addEventListener("click",submitScore);
 
 // Functions
 function showQuestionSection () {
@@ -279,4 +283,11 @@ function showEndScreen () {
     questionSection.classList.add("hide");
     endScreen.classList.remove("hide");
     finalScoreText.textContent = latestPlayerScore;
+    console.log(latestPlayerScore);
+}
+
+function submitScore () {
+    let playerInitialsEntered = playerInitials.value
+    scoreForStorage[playerInitialsEntered] = latestPlayerScore;
+    localStorage.setItem("scores", JSON.stringify(scoreForStorage))
 }
